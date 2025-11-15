@@ -43,21 +43,22 @@ submenu.add_command(label = 'PLATOS HONDOS')
 
 
 # barra de desplazamiento
+# barra de desplazamiento
 ventana.title('Barra de desplazamiento')
-#ventana.geometry('400x200')
+
 marco = tk.Frame(ventana)
 marco.pack(padx = 10, pady = 10)
 scrollbar = tk.Scrollbar (marco)
 scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
 
 lista = tk.Listbox(marco, yscrollcommand
-= scrollbar .set)
-productos = ["remeras", "zapatos", "camisas", "medias", "zapatillas", "collares", "riñoneras","relojes", "alpargatas", "lentes de sol", "regalos", "sábanas", "fundas"]
+= scrollbar.set)
+productos = ["platos", "cuchillos", "tenedores", "cucharas", "tazas", "manteles", "individuales","pocillos", "teteras", "cafeteras", "repasadores", "jarras", "fuentes"]
 for producto in productos:
  lista.insert(tk.END, producto)
 lista.pack(side = tk.LEFT, fill = 
 tk.BOTH)
-scrollbar .config(command = lista.yview)
+scrollbar.config(command = lista.yview)
 
 #RELOJ SIMPLE
 
@@ -72,6 +73,7 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
 
 
 
