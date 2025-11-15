@@ -22,17 +22,33 @@ lista_producto.pack()
 
 #MENU DESPLEGABLE
 
-ventana.title('Menú desplegable')
+
 barra_menu = tk.Menu(ventana)
 ventana.config(menu=barra_menu)
 menu_principal = tk.Menu(barra_menu)
 barra_menu.add_cascade(label =
-'Principal', menu=menu_principal)
+'CONCESIONARIA', menu=menu_principal)
 submenu = tk.Menu(menu_principal)
 menu_principal.add_cascade(label =
-'Opciones', menu=submenu)
-submenu.add_command(label = 'Opción 1')
-submenu.add_command(label = 'Opción 2')
+'AUTOS', menu=submenu)
+submenu.add_command(label = 'FORD')
+submenu.add_command(label = 'PEUGEOT')
+
+
+# barra de desplazamiento
+
+marco = tk.Frame(ventana)
+marco.pack(padx = 10, pady = 10)
+scrollbar = tk.Scrollbar (marco)
+scrollbar .pack(side = tk.RIGHT, fill =
+tk.Y)
+lista = tk.Listbox(marco, yscrollcommand
+= scrollbar .set)
+for i in range(100):
+ lista.insert(tk.END, f'Elemento{i+1}')
+lista.pack(side = tk.LEFT, fill =
+tk.BOTH)
+scrollbar .config(command = lista.yview)
 
 #RELOJ SIMPLE
 
@@ -45,22 +61,5 @@ def hora():
  ventana.after(1000, hora)
 reloj.pack(anchor = 'center')
 hora()
-
-# barra de desplazamiento
-
-marco = tk.Frame(ventana)
-marco.pack(padx = 10, pady = 10)
-scrollbar = tk.Scrollbar (marco)
-scrollbar .pack(side = tk.RIGHT, fill =
-tk.Y)
-lista = tk.Listbox(marco, yscrollcommand
-= scrollbar .set)
-productos = ["remeras", "zapatos", "camisas", "medias", "zapatillas", "collares", "riñoneras","relojes", "alpargatas", "lentes de sol", "regalos", "sábanas", "fundas"]
-for producto in productos:
-lista.insert(tk.END, producto)
-lista.pack(side = tk.LEFT, fill =
-tk.BOTH)
-scrollbar .config(command = lista.yview)
-
 
 ventana.mainloop()
