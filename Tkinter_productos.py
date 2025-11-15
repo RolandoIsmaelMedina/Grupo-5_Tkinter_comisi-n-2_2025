@@ -44,8 +44,9 @@ scrollbar .pack(side = tk.RIGHT, fill =
 tk.Y)
 lista = tk.Listbox(marco, yscrollcommand
 = scrollbar .set)
-for i in range(100):
- lista.insert(tk.END, f'Elemento{i+1}')
+productos = ["remeras", "zapatos", "camisas", "medias", "zapatillas", "collares", "riñoneras","relojes", "alpargatas", "lentes de sol", "regalos", "sábanas", "fundas"]
+for producto in productos:
+ lista.insert(tk.END, producto)
 lista.pack(side = tk.LEFT, fill =
 tk.BOTH)
 scrollbar .config(command = lista.yview)
@@ -63,3 +64,4 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
