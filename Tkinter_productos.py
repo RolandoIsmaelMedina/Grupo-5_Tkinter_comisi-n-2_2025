@@ -1,8 +1,4 @@
 
-
-
-# MENU DESPLEGABLE
-
 import tkinter as tk
 ventana = tk.Tk()
 ventana.title('Lista de producto')
@@ -27,8 +23,6 @@ boton_eliminar.configure(bg="#E53935", fg="white")
 lista_producto = tk.Listbox(ventana)
 lista_producto.pack()
 
-#MENU DESPLEGABLE
-
 
 barra_menu = tk.Menu(ventana)
 ventana.config(menu=barra_menu)
@@ -42,10 +36,7 @@ submenu.add_command(label = 'PLATOS PLAYOS')
 submenu.add_command(label = 'PLATOS HONDOS')
 
 
-# barra de desplazamiento
-# barra de desplazamiento
-ventana.title('Barra de desplazamiento')
-
+ventana.title('Tkinter proyecto grupo 5')
 marco = tk.Frame(ventana)
 marco.pack(padx = 10, pady = 10)
 scrollbar = tk.Scrollbar (marco)
@@ -60,7 +51,6 @@ lista.pack(side = tk.LEFT, fill =
 tk.BOTH)
 scrollbar.config(command = lista.yview)
 
-#RELOJ SIMPLE
 
 import time
 reloj = tk.Label(ventana, font =
