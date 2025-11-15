@@ -20,6 +20,7 @@ def eliminar_producto():
  if seleccion:lista_producto.delete(seleccion)
 boton_eliminar = tk.Button(ventana, text = 'Eliminar producto', command = eliminar_producto)
 boton_eliminar.pack()
+boton_eliminar.configure(bg="#E53935", fg="white")
 lista_producto = tk.Listbox(ventana)
 lista_producto.pack()
 
@@ -65,5 +66,6 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
 
 
