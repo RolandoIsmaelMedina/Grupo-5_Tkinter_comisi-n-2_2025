@@ -1,14 +1,65 @@
+# MENU DESPLEGABLE
+
 import tkinter as tk
-#ahora creamos una ventana principal
-
 ventana = tk.Tk()
-ventana.title('Grupo 5__produtos')
-ventana.geometry("600x400")#dimensiones de la ventana
+ventana.title('Lista de producto')
+ventana.geometry('1000x800')
+ingreso_producto = tk.Entry(ventana)
+ingreso_producto.pack()
+def agregar_producto():
+ producto = ingreso_producto.get()
+ if producto:lista_producto.insert(tk.END, producto)
+ ingreso_producto.delete(0, tk.END)
+boton_agregar = tk.Button(ventana, text = 'Agregar producto', command = agregar_producto)
+boton_agregar.pack()
+def eliminar_producto():
+ seleccion = lista_producto.curselection()
+ if seleccion:lista_producto.delete(seleccion)
+boton_eliminar = tk.Button(ventana, text = 'Eliminar producto', command = eliminar_producto)
+boton_eliminar.pack()
+lista_producto = tk.Listbox(ventana)
+lista_producto.pack()
 
-#ahora creamos un label (texto no editable de identificación de la ventana)
-etiqueta = tk.Label(ventana, text= "Elige tus productos favoritos",font="Arial")
-#AHORA DEBO, SI O SI, EMPAQUETAR EL LABEL con lo siguiente:
+#MENU DESPLEGABLE
 
-etiqueta.pack()
-#iniciamos este bucle necesario para mantener la ventana abierta...
+
+barra_menu = tk.Menu(ventana)
+ventana.config(menu=barra_menu)
+menu_principal = tk.Menu(barra_menu)
+barra_menu.add_cascade(label =
+'CONCESIONARIA', menu=menu_principal)
+submenu = tk.Menu(menu_principal)
+menu_principal.add_cascade(label =
+'AUTOS', menu=submenu)
+submenu.add_command(label = 'FORD')
+submenu.add_command(label = 'PEUGEOT')
+
+
+# barra de desplazamiento
+
+marco = tk.Frame(ventana)
+marco.pack(padx = 10, pady = 10)
+scrollbar = tk.Scrollbar (marco)
+scrollbar .pack(side = tk.RIGHT, fill =
+tk.Y)
+lista = tk.Listbox(marco, yscrollcommand
+= scrollbar .set)
+for i in range(100):
+ lista.insert(tk.END, f'Elemento{i+1}')
+lista.pack(side = tk.LEFT, fill =
+tk.BOTH)
+scrollbar .config(command = lista.yview)
+
+#RELOJ SIMPLE
+
+import time
+reloj = tk.Label(ventana, font =
+('Arial', 60), bg = 'blue', fg = 'white')
+def hora():
+ tiempo_actual =time.strftime('%H:%M:%S')
+ reloj.config(text = tiempo_actual)
+ ventana.after(1000, hora)
+reloj.pack(anchor = 'center')
+hora()
+
 ventana.mainloop()
