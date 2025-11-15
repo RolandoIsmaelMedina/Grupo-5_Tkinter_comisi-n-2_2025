@@ -1,3 +1,6 @@
+
+
+
 # MENU DESPLEGABLE
 
 import tkinter as tk
@@ -31,12 +34,12 @@ barra_menu = tk.Menu(ventana)
 ventana.config(menu=barra_menu)
 menu_principal = tk.Menu(barra_menu)
 barra_menu.add_cascade(label =
-'CONCESIONARIA', menu=menu_principal)
+'BAZAR', menu=menu_principal)
 submenu = tk.Menu(menu_principal)
 menu_principal.add_cascade(label =
-'AUTOS', menu=submenu)
-submenu.add_command(label = 'FORD')
-submenu.add_command(label = 'PEUGEOT')
+'PLATOS', menu=submenu)
+submenu.add_command(label = 'PLATOS PLAYOS')
+submenu.add_command(label = 'PLATOS HONDOS')
 
 
 # barra de desplazamiento
@@ -57,7 +60,7 @@ scrollbar .config(command = lista.yview)
 
 import time
 reloj = tk.Label(ventana, font =
-('Arial', 60), bg = 'blue', fg = 'white')
+('Arial', 10), bg = 'grey', fg = 'white')
 def hora():
  tiempo_actual =time.strftime('%H:%M:%S')
  reloj.config(text = tiempo_actual)
@@ -66,6 +69,9 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
+
+
 
 
 
