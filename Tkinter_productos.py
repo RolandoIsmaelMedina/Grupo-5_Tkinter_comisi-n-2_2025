@@ -4,14 +4,17 @@ import tkinter as tk
 ventana = tk.Tk()
 ventana.title('Lista de producto')
 ventana.geometry('1000x800')
+ventana.configure(bg="#f0e6ff") 
 ingreso_producto = tk.Entry(ventana)
 ingreso_producto.pack()
+ingreso_producto.configure(bg="#ffffff", fg="#4a0072")
 def agregar_producto():
  producto = ingreso_producto.get()
  if producto:lista_producto.insert(tk.END, producto)
  ingreso_producto.delete(0, tk.END)
 boton_agregar = tk.Button(ventana, text = 'Agregar producto', command = agregar_producto)
 boton_agregar.pack()
+boton_agregar.configure(bg="#4CAF50", fg="white")
 def eliminar_producto():
  seleccion = lista_producto.curselection()
  if seleccion:lista_producto.delete(seleccion)
@@ -62,4 +65,5 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
 
