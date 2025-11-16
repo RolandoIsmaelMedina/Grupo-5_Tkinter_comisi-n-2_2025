@@ -3,8 +3,9 @@ import tkinter as tk
 ventana = tk.Tk()
 ventana.title('Lista de producto')
 ventana.geometry('1000x800')
-ventana.configure(bg="#f0e6ff") 
+ventana.configure(bg="#e6f7ff")
 ingreso_producto = tk.Entry(ventana)
+font=("Arial", 14)
 ingreso_producto.pack()
 ingreso_producto.configure(bg="#ffffff", fg="#4a0072")
 def agregar_producto():
@@ -12,15 +13,28 @@ def agregar_producto():
  if producto:lista_producto.insert(tk.END, producto)
  ingreso_producto.delete(0, tk.END)
 boton_agregar = tk.Button(ventana, text = 'Agregar producto', command = agregar_producto)
+bg="#a3d9ff",  
+    fg="#003044",
+    font=("Arial", 12, "bold")
 boton_agregar.pack()
 boton_agregar.configure(bg="#4CAF50", fg="white")
 def eliminar_producto():
  seleccion = lista_producto.curselection()
  if seleccion:lista_producto.delete(seleccion)
 boton_eliminar = tk.Button(ventana, text = 'Eliminar producto', command = eliminar_producto)
+bg="#ffb3b3",   
+    fg="#5a0000",
+    font=("Arial", 12, "bold")
 boton_eliminar.pack()
 boton_eliminar.configure(bg="#E53935", fg="white")
 lista_producto = tk.Listbox(ventana)
+font=("Arial", 16, "bold"),
+    fg="#2b4e68",
+    bg="#ffffff",
+    width=35,
+    height=8,
+    highlightthickness=3,
+    highlightbackground="#a3d9ff" 
 lista_producto.pack()
 
 
@@ -63,6 +77,7 @@ reloj.pack(anchor = 'center')
 hora()
 
 ventana.mainloop()
+
 
 
 
